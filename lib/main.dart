@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/view/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:netflix_clone/view/splash_screen/splash_screen.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavBar(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/utils/color_constant/color_constant.dart';
 import 'package:netflix_clone/utils/databases/database.dart';
+import 'package:netflix_clone/view/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:netflix_clone/view/home_screen/home_screen.dart';
 
 import '../../utils/images-constants/image_constants.dart';
 
 class UsernameScreen extends StatelessWidget {
-    UsernameScreen({super.key});
+  UsernameScreen({super.key});
 
-  
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: ColorConstant.backgroundColor,
       appBar: AppBar(
@@ -39,7 +38,9 @@ class UsernameScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 100,),
+            SizedBox(
+              height: 100,
+            ),
             Expanded(
               child: GridView.builder(
                 shrinkWrap: true,
@@ -52,7 +53,9 @@ class UsernameScreen extends StatelessWidget {
                 ),
                 itemCount: Database.profile.length,
                 itemBuilder: (context, index) => InkWell(
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen(),)),
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => BottomNavBar(),
+                  )),
                   child: Container(
                     width: 100,
                     height: 121,
@@ -61,12 +64,17 @@ class UsernameScreen extends StatelessWidget {
                         height: 92,
                         width: 100,
                         decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage(Database.profile[index]['image']))
-                        ),
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    Database.profile[index]['image']))),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Center(child: Text(Database.profile[index]['name'],style: TextStyle(color: Colors.white),)),
+                        child: Center(
+                            child: Text(
+                          Database.profile[index]['name'],
+                          style: TextStyle(color: Colors.white),
+                        )),
                       )
                     ]),
                   ),
